@@ -11,15 +11,16 @@ const chapters = [
   { id: 'introduction', title: 'Introduction' },
   { id: 'core-concepts', title: 'Core Concepts' },
   { id: 'annotation-syntax', title: 'Annotation Syntax' },
-  { id: 'find-panel', title: 'The Find Panel' },
-  { id: 'two-stage-filtering', title: 'Two-Stage Filtering' },
+  { id: 'the-find-panel', title: 'The Find Panel' },
+  { id: 'two-stage-filtering-patent-pending', title: 'Two-Stage Filtering' },
   { id: 'document-management', title: 'Document Management' },
   { id: 'project-organization', title: 'Project Organization' },
   { id: 'export-features', title: 'Export Features' },
   { id: 'markdown-guide', title: 'Markdown Guide' },
   { id: 'keyboard-shortcuts', title: 'Keyboard Shortcuts' },
-  { id: 'use-cases', title: 'Use Cases & Workflows' },
-  { id: 'tips', title: 'Tips & Best Practices' },
+  { id: 'use-cases--workflows', title: 'Use Cases & Workflows' },
+  { id: 'tips--best-practices', title: 'Tips & Best Practices' },
+  { id: 'getting-help', title: 'Getting Help' },
 ]
 
 export default function RootLayout({
@@ -28,7 +29,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: `
+          /* Scroll offset for fixed header */
+          html {
+            scroll-padding-top: 100px;
+          }
+        `}} />
+      </head>
       <body>
         {/* Header */}
         <header className="fixed top-0 left-0 right-0 h-16 bg-white border-b border-gray-200 z-50">
@@ -70,12 +79,12 @@ export default function RootLayout({
               <ul className="space-y-1">
                 {chapters.map((chapter) => (
                   <li key={chapter.id}>
-                    <Link
+                    
                       href={`#${chapter.id}`}
                       className="block px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md transition"
                     >
                       {chapter.title}
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>
