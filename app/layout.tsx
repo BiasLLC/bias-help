@@ -25,13 +25,12 @@ const chapters = [
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
+}>) {
   return (
     <html lang="en">
       <body>
-        {/* Header */}
         <header className="fixed top-0 left-0 right-0 h-16 bg-white border-b border-gray-200 z-50">
           <div className="h-full px-6 flex items-center justify-between">
             <Link href="/" className="text-xl font-bold text-blue-600">
@@ -51,9 +50,7 @@ export default function RootLayout({
           </div>
         </header>
 
-        {/* Layout */}
         <div className="flex mt-16 min-h-screen">
-          {/* Sidebar */}
           <aside className="fixed left-0 w-64 h-[calc(100vh-4rem)] bg-gray-50 border-r border-gray-200 overflow-y-auto">
             <nav className="p-6">
               <div className="mb-6">
@@ -83,13 +80,11 @@ export default function RootLayout({
             </nav>
           </aside>
 
-          {/* Main Content */}
           <main className="ml-64 flex-1 p-8 max-w-4xl">
             {children}
           </main>
         </div>
 
-        {/* Footer */}
         <footer className="ml-64 border-t border-gray-200 bg-gray-50 py-8 px-8 text-center text-sm text-gray-600">
           <div className="flex justify-center gap-8 mb-4">
             <a href="https://bias.pub" className="hover:text-blue-600">
