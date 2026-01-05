@@ -2,9 +2,25 @@ import fs from 'fs'
 import path from 'path'
 import { marked } from 'marked'
 
-// This will be a server component that reads and renders the markdown
+// Configure marked to add IDs to headings
+const renderer = new marked.Renderer()
+const originalHeading = renderer.heading.bind(renderer)
+
+renderer.heading = function(text, level, raw) {
+  // Generate ID from heading text
+  const id = raw
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '') // Remove special chars
+    .replace(/\s+/g, '-')      // Replace spaces with hyphens
+    .replace(/-+/g, '-')       // Replace multiple hyphens with single
+    .trim()
+  
+  return `<h${level} id="${id}">${text}</h${level}>\n`
+}
+
+marked.setOptions({ renderer })
+
 export default async function Home() {
-  // Read the USER_FEATURES.md file
   const filePath = path.join(process.cwd(), 'content', 'user-guide.md')
   let content = ''
   
@@ -14,7 +30,7 @@ export default async function Home() {
     content = '# Welcome to BIAS Writer Help\n\nDocumentation is being set up...'
   }
 
-  // Convert markdown to HTML
+  // Convert markdown to HTML with custom renderer
   const htmlContent = marked(content)
 
   return (
