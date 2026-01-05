@@ -29,15 +29,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <head>
-        <style dangerouslySetInnerHTML={{ __html: `
-          /* Scroll offset for fixed header */
-          html {
-            scroll-padding-top: 100px;
-          }
-        `}} />
-      </head>
+    <html lang="en">
       <body>
         {/* Header */}
         <header className="fixed top-0 left-0 right-0 h-16 bg-white border-b border-gray-200 z-50">
