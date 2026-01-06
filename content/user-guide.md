@@ -1,14 +1,6 @@
 # BIAS Writer - User Features Guide
 
 ---
-**BIAS Writer - Patent Pending**  
-Copyright © 2025 BIAS LLC. All rights reserved.
-
-U.S. Provisional Patent Application No. 63/949,099  
-Two-Stage Hierarchical Content Filtering System
-
-**Filing Date:** December 26, 2024
----
 
 ## Table of Contents
 
@@ -1573,18 +1565,27 @@ A: Press `Shift + Cmd/Ctrl + L` again, or click the chevron button at the edge o
 
 ## About BIAS Writer
 
-BIAS Writer is developed by BIAS LLC and protected by U.S. Provisional Patent Application No. 63/949,099 covering the two-stage hierarchical content filtering system.
+BIAS Writer is a professional markdown editor developed by BIAS LLC, featuring patent-pending annotation management technology.
 
-**Patent-Pending Technology:**
-The two-stage filtering approach is novel and provides significant advantages over traditional search methods. The X/Y count format, categorical filtering, and lexical refinement work together to create an intuitive, powerful annotation management system.
+### Patent-Pending Technology
 
-**For More Information:**
-- Technical details: See ARCHITECTURE.md
-- Patent information: See PATENTS.md
-- License: See LICENSE
+BIAS Writer's two-stage hierarchical content filtering system is protected by **U.S. Provisional Patent Application No. 63/949,099**, filed December 26, 2024.
+
+This innovative search and filtering approach provides significant advantages over traditional search methods. The X/Y count format, categorical filtering, and lexical refinement work together to create an intuitive, powerful annotation management system.
+
+### Resources
+
+- **User Guide:** https://help.bias.pub
+- **Video Tutorials:** https://www.youtube.com/@BIASLLCApps
+- **Support:** support@bias.pub
+- **General Inquiries:** info@bias.pub
+
+### Technical Documentation
+
+Detailed technical architecture and patent information are available upon request for licensing or partnership inquiries. Contact info@bias.pub.
 
 ---
 
-**Copyright © 2025 BIAS LLC. All rights reserved.**
-
+**BIAS Writer**  
+© 2025 BIAS LLC. All rights reserved.  
 Patent Pending - U.S. Provisional Patent Application No. 63/949,099
