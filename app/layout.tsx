@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import MobileMenu from './MobileMenu'
 
 export const metadata: Metadata = {
   title: 'BIAS Writer - User Guide',
@@ -30,36 +31,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: `
-          function toggleMenu() {
-            const sheet = document.getElementById('mobile-sheet');
-            const backdrop = document.getElementById('mobile-backdrop');
-            const isOpen = sheet.classList.contains('translate-y-0');
-            
-            if (isOpen) {
-              sheet.classList.remove('translate-y-0');
-              sheet.classList.add('translate-y-full');
-              backdrop.classList.add('hidden');
-              document.body.style.overflow = '';
-            } else {
-              sheet.classList.remove('translate-y-full');
-              sheet.classList.add('translate-y-0');
-              backdrop.classList.remove('hidden');
-              document.body.style.overflow = 'hidden';
-            }
-          }
-          
-          function closeMenu() {
-            const sheet = document.getElementById('mobile-sheet');
-            const backdrop = document.getElementById('mobile-backdrop');
-            sheet.classList.remove('translate-y-0');
-            sheet.classList.add('translate-y-full');
-            backdrop.classList.add('hidden');
-            document.body.style.overflow = '';
-          }
-        `}} />
-      </head>
       <body>
         {/* Header */}
         <header className="fixed top-0 left-0 right-0 h-16 bg-white border-b border-gray-200 z-50">
@@ -111,55 +82,8 @@ export default function RootLayout({
           </main>
         </div>
 
-        {/* Mobile Bottom Sheet Backdrop */}
-        <div 
-          id="mobile-backdrop"
-          className="lg:hidden fixed inset-0 bg-black/50 z-40 hidden"
-          onClick={() => closeMenu()}
-        />
-
-        {/* Mobile Bottom Sheet */}
-        <div 
-          id="mobile-sheet"
-          className="lg:hidden fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-2xl z-50 transform translate-y-full transition-transform duration-300 ease-out max-h-[80vh] overflow-hidden"
-        >
-          {/* Handle */}
-          <div className="flex justify-center pt-3 pb-2">
-            <div className="w-12 h-1.5 bg-gray-300 rounded-full" />
-          </div>
-          
-          {/* Sheet Content */}
-          <div className="px-6 pb-6 overflow-y-auto max-h-[calc(80vh-4rem)]">
-            <div className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-4">
-              Contents
-            </div>
-            
-            <ul className="space-y-1">
-              {chapters.map((chapter) => (
-                <li key={chapter.id}>
-                  <a
-                    href={'#' + chapter.id}
-                    onClick={() => closeMenu()}
-                    className="block px-4 py-3 text-base text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition active:bg-blue-100"
-                  >
-                    {chapter.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => toggleMenu()}
-          className="lg:hidden fixed bottom-6 right-6 bg-blue-600 text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center z-30 active:bg-blue-700 transition"
-          aria-label="Toggle menu"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+        {/* Mobile Menu Component */}
+        <MobileMenu />
 
         {/* Footer */}
         <footer className="lg:ml-64 border-t border-gray-200 bg-gray-50 py-8 px-6 lg:px-8 text-center text-sm text-gray-600">
