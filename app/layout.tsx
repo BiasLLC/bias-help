@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="flex gap-6 items-center text-sm">
               <a href="https://bias.pub" className="text-gray-600 hover:text-blue-600">Home</a>
               <a href="https://www.youtube.com/@BIASLLCApps" className="text-gray-600 hover:text-blue-600" target="_blank" rel="noopener">Tutorials</a>
-              <a href="mailto:support@bias.pub" className="text-gray-600 hover:text-blue-600">Support</a>
+              <a href="mailto:support@bias.pub?subject=BIAS%20Writer%20Support" className="text-gray-600 hover:text-blue-600">Support</a>
             </div>
           </div>
         </header>
@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="flex justify-center gap-8 mb-4">
             <a href="https://bias.pub" className="hover:text-blue-600">Website</a>
             <a href="https://www.youtube.com/@BIASLLCApps" className="hover:text-blue-600" target="_blank" rel="noopener">YouTube Tutorials</a>
-            <a href="mailto:support@bias.pub" className="hover:text-blue-600">Support</a>
+            <a href="mailto:support@bias.pub?subject=BIAS%20Writer%20Support" className="hover:text-blue-600">Support</a>
             <a href="mailto:info@bias.pub" className="hover:text-blue-600">Contact</a>
           </div>
           <div>
