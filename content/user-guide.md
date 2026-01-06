@@ -1194,10 +1194,6 @@ BIAS Writer is a markdown editor. Here's a complete guide to markdown syntax.
 ***bold and italic***
 ```
 
-**Strikethrough:**
-```markdown
-~~strikethrough~~
-```
 
 ### Lists
 
