@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const chapters = [
   { id: 'introduction', title: 'Introduction' },
@@ -20,6 +20,22 @@ const chapters = [
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false)
+
+  // Auto-scroll to introduction on mobile on first load
+  useEffect(() => {
+    const isMobile = window.innerWidth < 1024
+    const hasScrolled = sessionStorage.getItem('hasScrolledToIntro')
+    
+    if (isMobile && !hasScrolled) {
+      setTimeout(() => {
+        const introElement = document.getElementById('introduction')
+        if (introElement) {
+          introElement.scrollIntoView({ behavior: 'smooth' })
+          sessionStorage.setItem('hasScrolledToIntro', 'true')
+        }
+      }, 500)
+    }
+  }, [])
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
