@@ -829,10 +829,9 @@ Result: See only omitted content
 | Action | macOS | Windows/Linux |
 |--------|-------|---------------|
 | Open/Close Find Panel | `Cmd + F` | `Ctrl + F` |
-| Jump to Memos | `Cmd + 9` or `Cmd + 0` | `Ctrl + 9` or `Ctrl + 0` |
-| Jump to Omits | `Cmd + [` or `Cmd + ]` | `Ctrl + [` or `Ctrl + ]` |
-| Toggle Focus Mode | `Shift + Cmd + L` | `Shift + Ctrl + L` |
-| Save | `Cmd + S` | `Ctrl + S` |
+| Add Memo | `Cmd + 9` or `Cmd + 0` | `Ctrl + 9` or `Ctrl + 0` |
+| Add Omit | `Cmd + [` or `Cmd + ]` | `Ctrl + [` or `Ctrl + ]` |
+| Toggle Desktop Focus Mode | `Shift + Cmd + L` | `Shift + Ctrl + L` |
 | Close Panel | `Esc` | `Esc` |
 
 ### Editor
@@ -851,8 +850,8 @@ Result: See only omitted content
 |--------|--------|
 | Navigate Results | Click on result |
 | Close Find Panel | `Esc` or `Cmd/Ctrl + F` |
-| Jump to Memos Mode | `Cmd/Ctrl + 9` or `Cmd/Ctrl + 0` |
-| Jump to Omits Mode | `Cmd/Ctrl + [` or `Cmd/Ctrl + ]` |
+| Add Memo | `Cmd/Ctrl + 9` or `Cmd/Ctrl + 0` |
+| Add Omit | `Cmd/Ctrl + [` or `Cmd/Ctrl + ]` |
 
 ### Annotation Shortcuts (Future)
 
@@ -1544,10 +1543,9 @@ A: Press `Shift + Cmd/Ctrl + L` again, or click the chevron button at the edge o
 ├─────────────────────────────────────────┤
 │ GLOBAL                                  │
 │  Cmd/Ctrl + F     Toggle Find Panel     │
-│  Cmd/Ctrl + 9/0   Jump to Memos         │
-│  Cmd/Ctrl + [/]   Jump to Omits         │
+│  Cmd/Ctrl + 9/0   Add Memo              │
+│  Cmd/Ctrl + [/]   Add Omit              │
 │  Shift+Cmd/Ctrl+L Toggle Focus Mode     │
-│  Cmd/Ctrl + S     Save                  │
 │  Esc              Close Panel           │
 ├─────────────────────────────────────────┤
 │ EDITOR                                  │
