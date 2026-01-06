@@ -77,7 +77,7 @@ export default function RootLayout({
           </aside>
 
           {/* Main Content */}
-          <main className="lg:ml-64 flex-1 p-6 lg:p-8 max-w-4xl pb-24 lg:pb-8">
+          <main className="lg:ml-64 w-full flex-1 p-6 lg:p-8 lg:max-w-4xl pb-24 lg:pb-8">
             {children}
           </main>
         </div>
