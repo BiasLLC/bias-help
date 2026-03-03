@@ -186,7 +186,7 @@ The Find Panel is your command center for navigating annotations across all docu
 
 **Methods:**
 - Click "Find" button in toolbar
-- Press `Cmd/Ctrl + F`
+- Press `Cmd + F`
 - Click any annotation to open relevant mode
 
 ### Four Modes
@@ -616,7 +616,7 @@ Opens Sprint & Stats panel with timer and live statistics.
 **Purpose:** Distraction-free writing by hiding the Library panel
 
 **Activate Focus Mode:**
-- **Keyboard:** `Shift + Cmd/Ctrl + L`
+- **Keyboard:** `Shift + Cmd + L`
 - **Click:** Chevron button to collapse/expand Library panel
 
 **In Focus Mode:**
@@ -627,7 +627,7 @@ Opens Sprint & Stats panel with timer and live statistics.
 - Find Panel still works
 
 **Exit Focus Mode:**
-- Press `Shift + Cmd/Ctrl + L` again
+- Press `Shift + Cmd + L` again
 - Click chevron button to restore Library panel
 
 **Use Cases:**
@@ -830,20 +830,20 @@ Result: See only omitted content
 
 | Action | Shortcut |
 |--------|----------|
-| Bold | `Cmd/Ctrl + B` |
-| Italic | `Cmd/Ctrl + I` |
-| Undo | `Cmd/Ctrl + Z` |
-| Redo | `Cmd/Ctrl + Shift + Z` |
-| Select All | `Cmd/Ctrl + A` |
+| Bold | `Cmd + B` |
+| Italic | `Cmd + I` |
+| Undo | `Cmd + Z` |
+| Redo | `Cmd + Shift + Z` |
+| Select All | `Cmd + A` |
 
 ### Find Panel Navigation
 
 | Action | Method |
 |--------|--------|
 | Navigate Results | Click on result |
-| Close Find Panel | `Esc` or `Cmd/Ctrl + F` |
-| Add Memo | `Cmd/Ctrl + 9` or `Cmd/Ctrl + 0` |
-| Add Omit | `Cmd/Ctrl + [` or `Cmd/Ctrl + ]` |
+| Close Find Panel | `Esc` or `Cmd + F` |
+| Add Memo | `Cmd + 9` or `Cmd + 0` |
+| Add Omit | `Cmd + [` or `Cmd + ]` |
 
 ### Annotation Shortcuts (Future)
 
@@ -1396,7 +1396,7 @@ Blue styling, for organization
 - Use project stats to see big picture
 
 **11. Use Desktop Focus Mode for distraction-free writing**
-- Press `Shift + Cmd/Ctrl + L` to hide Library panel
+- Press `Shift + Cmd + L` to hide Library panel
 - Pair with Sprint & Stats timer
 - Full editor width for immersive writing
 - Toggle back when you need to navigate documents
@@ -1488,10 +1488,10 @@ A: Yes! Word counts, character counts, and annotation counts update as you type.
 A: Yes. The Stats panel shows both document-level stats (current document) and project-level stats (all documents combined, including total words, documents, and annotations).
 
 **Q: What is Desktop Focus Mode?**
-A: Desktop Focus Mode hides the Library panel to give you full-width editor space for distraction-free writing. Toggle it with `Shift + Cmd/Ctrl + L` or click the chevron button.
+A: Desktop Focus Mode hides the Library panel to give you full-width editor space for distraction-free writing. Toggle it with `Shift + Cmd + L` or click the chevron button.
 
 **Q: How do I get the Library panel back after hiding it?**
-A: Press `Shift + Cmd/Ctrl + L` again, or click the chevron button at the edge of the screen to restore the Library panel.
+A: Press `Shift + Cmd + L` again, or click the chevron button at the edge of the screen to restore the Library panel.
 
 ### Troubleshooting
 
@@ -1530,22 +1530,22 @@ A: Press `Shift + Cmd/Ctrl + L` again, or click the chevron button at the edge o
 │         BIAS WRITER SHORTCUTS           │
 ├─────────────────────────────────────────┤
 │ GLOBAL                                  │
-│  Cmd/Ctrl + F     Toggle Find Panel     │
-│  Cmd/Ctrl + 9/0   Add Memo              │
-│  Cmd/Ctrl + [/]   Add Omit              │
-│  Shift+Cmd/Ctrl+L Toggle Focus Mode     │
+│  Cmd + F     Toggle Find Panel     │
+│  Cmd + 9/0   Add Memo              │
+│  Cmd + [/]   Add Omit              │
+│  Shift+Cmd+L Toggle Focus Mode     │
 │  Esc              Close Panel           │
 ├─────────────────────────────────────────┤
 │ EDITOR                                  │
-│  Cmd/Ctrl + B     Bold                  │
-│  Cmd/Ctrl + I     Italic                │
-│  Cmd/Ctrl + Z     Undo                  │
-│  Cmd/Ctrl + Y     Redo                  │
+│  Cmd + B     Bold                  │
+│  Cmd + I     Italic                │
+│  Cmd + Z     Undo                  │
+│  Cmd + Y     Redo                  │
 ├─────────────────────────────────────────┤
 │ FIND PANEL                              │
 │  Click            Navigate to Result    │
 │  Esc              Close Panel           │
-│  Cmd/Ctrl + F     Toggle Panel          │
+│  Cmd + F     Toggle Panel          │
 └─────────────────────────────────────────┘
 ```
 
