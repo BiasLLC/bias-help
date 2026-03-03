@@ -1588,4 +1588,4 @@ Detailed technical architecture and patent information are available upon reques
 
 **BIAS Writer**  
 © 2025 BIAS LLC. All rights reserved.  
-Patent Pending - U.S. Provisional Patent Application No. 63/949,099
+Patent Pending - U.S. Provisional Patent Application No. 63/949,099 
