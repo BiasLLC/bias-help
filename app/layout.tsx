@@ -19,8 +19,8 @@ const chapters = [
   { id: 'export-features', title: 'Export Features' },
   { id: 'markdown-guide', title: 'Markdown Guide' },
   { id: 'keyboard-shortcuts', title: 'Keyboard Shortcuts' },
-  { id: 'use-cases--workflows', title: 'Use Cases & Workflows' },
-  { id: 'tips--best-practices', title: 'Tips & Best Practices' },
+  { id: 'use-cases-workflows', title: 'Use Cases & Workflows' },
+  { id: 'tips-best-practices', title: 'Tips & Best Practices' },
   { id: 'getting-help', title: 'Getting Help' },
 ]
 
