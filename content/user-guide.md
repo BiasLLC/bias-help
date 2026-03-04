@@ -24,7 +24,7 @@
 7. [Document Management](#document-management)
    - Creating Documents
    - Importing Documents
-   - Document Types
+   - Document Types 
    - Document Actions
    - Selection Mode & Bulk Operations
    - Split Document
