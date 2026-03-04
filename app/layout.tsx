@@ -14,14 +14,20 @@ const chapters = [
   { id: 'annotation-syntax', title: 'Annotation Syntax' },
   { id: 'the-find-panel', title: 'The Find Panel' },
   { id: 'two-stage-filtering-patent-pending', title: 'Two-Stage Filtering' },
+  { id: 'the-library', title: 'The Library' },
   { id: 'document-management', title: 'Document Management' },
-  { id: 'project-organization', title: 'Project Organization' },
+  { id: 'deleting-and-recovery', title: 'Deleting and Recovery' },
+  { id: 'writing-tools', title: 'Writing Tools' },
   { id: 'export-features', title: 'Export Features' },
+  { id: 'settings', title: 'Settings' },
+  { id: 'project-organization', title: 'Project Organization' },
   { id: 'markdown-guide', title: 'Markdown Guide' },
   { id: 'keyboard-shortcuts', title: 'Keyboard Shortcuts' },
   { id: 'use-cases-workflows', title: 'Use Cases & Workflows' },
   { id: 'tips-best-practices', title: 'Tips & Best Practices' },
-  { id: 'getting-help', title: 'Getting Help' },
+  { id: 'common-questions', title: 'Common Questions' },
+  { id: 'troubleshooting', title: 'Troubleshooting' },
+  { id: 'resources', title: 'Resources' },
 ]
 
 export default function RootLayout({
