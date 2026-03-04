@@ -1,4 +1,4 @@
-# BIAS Writer - User Features Guide
+# BIAS Writer — User Guide
 
 ---
 
@@ -7,41 +7,67 @@
 1. [Introduction](#introduction)
 2. [Core Concepts](#core-concepts)
 3. [Annotation Syntax](#annotation-syntax)
+   - Memos
+   - Omits
+   - Tags
+   - Footnotes
 4. [The Find Panel](#the-find-panel)
+   - Search Mode
+   - Memos Mode
+   - Omits Mode
+   - Tags Mode
 5. [Two-Stage Filtering (Patent-Pending)](#two-stage-filtering-patent-pending)
-6. [Document Management](#document-management)
+6. [The Library](#the-library)
+   - Sidebar Layout
+   - Documents Tab
+   - Projects Tab
+7. [Document Management](#document-management)
    - Creating Documents
+   - Importing Documents
    - Document Types
-   - Document Operations (Single & Merge)
+   - Document Actions
    - Selection Mode & Bulk Operations
-   - Library Panel Organization
-   - Right-Click / Swipe Controls
-   - Toolbar & Menu System
-   - Sprint & Stats
-   - Desktop Focus Mode
-   - Sorting Options
-   - Split Document Feature
+   - Split Document
    - Viewing Archived Documents
-7. [Project Organization](#project-organization)
-8. [Export Features](#export-features)
-9. [Markdown Guide](#markdown-guide)
-10. [Keyboard Shortcuts](#keyboard-shortcuts)
-11. [Use Cases & Workflows](#use-cases--workflows)
-    - TODO Item Management
+8. [Deleting and Recovery](#deleting-and-recovery)
+   - Soft-Delete
+   - Recovery View
+9. [Writing Tools](#writing-tools)
+   - Formatting Toolbar
+   - Sprint & Stats
+   - Inspiration
+   - Print
+10. [Export Features](#export-features)
+    - Export Formats
+    - Annotation Control
+11. [Settings](#settings)
+    - Appearance
+    - Typography
+    - Author Info
+    - Subscription
+    - Recovery
+    - About
+12. [Project Organization](#project-organization)
+13. [Markdown Guide](#markdown-guide)
+14. [Keyboard Shortcuts](#keyboard-shortcuts)
+15. [Use Cases & Workflows](#use-cases--workflows)
+    - TODO Management
     - Revision Tracking
     - Theme Analysis
-    - Multi-Version Management
-    - Collaborative Feedback
+    - Starting a New Draft
     - Breaking Up Large Manuscripts
-    - Starting a New Draft Version
-    - Daily Writing Sessions with Timer
-12. [Tips & Best Practices](#tips--best-practices)
+    - Daily Writing Sessions
+16. [Tips & Best Practices](#tips--best-practices)
+17. [Common Questions](#common-questions)
+18. [Troubleshooting](#troubleshooting)
 
 ---
 
 ## Introduction
 
 BIAS Writer is a professional markdown writing environment designed for novelists, screenwriters, academics, and content creators who need powerful organizational tools without sacrificing writing flow.
+
+It runs on iPhone, iPad, and Mac with automatic iCloud sync across all your devices.
 
 ### What Makes BIAS Writer Different?
 
@@ -56,19 +82,23 @@ The result? Powerful filtered searches that feel natural and show you exactly wh
 
 ### Key Features at a Glance
 
-✅ **Three annotation types:** Memos, Omits, and Tags  
-✅ **Multi-mode Find Panel:** Search, Memos, Omits, Tags  
-✅ **Two-stage filtering:** Category first, then search  
-✅ **Clear result counts:** Always know filtered vs. total  
-✅ **Project organization:** Multiple projects, unlimited documents  
-✅ **Flexible export:** Selectively include/exclude annotations  
-✅ **Offline-first:** All data stored locally, works without internet
+- **Three annotation types:** Memos, Omits, and Tags
+- **Multi-mode Find Panel:** Search, Memos, Omits, Tags
+- **Two-stage filtering:** Category first, then search
+- **Clear result counts:** Always know filtered vs. total
+- **Project organization:** Multiple projects, unlimited documents
+- **Flexible export:** Selectively include/exclude annotations
+- **Sprint timer:** Timed writing sessions with word count tracking
+- **Selection mode:** Bulk operations on multiple documents
+- **Soft-delete with recovery:** 30-day recovery window for deleted items
+- **Offline-first:** All data stored locally, works without internet
+- **iCloud sync:** Automatic across iPhone, iPad, and Mac
 
 ---
 
 ## Core Concepts
 
-### What are Annotations?
+### What Are Annotations?
 
 Annotations are special text markers you add inline while writing. They serve as:
 - **Notes to yourself** (memos)
@@ -79,11 +109,11 @@ Unlike traditional comments that sit in margins, BIAS Writer annotations live **
 
 ### The Three Annotation Types
 
-| Type | Symbol | Purpose | Visual Style |
+| Type | Syntax | Purpose | Visual Style |
 |------|--------|---------|--------------|
-| **Memo** | `((text))` | Private notes, TODOs, reminders | 🟨 Yellow highlight |
-| **Omit** | `[[text]]` | Content to exclude from exports | Dimmed + strikethrough |
-| **Tag** | `#tag` | Categorical labels, topics | 🟦 Blue |
+| **Memo** | `((text))` | Private notes, TODOs, reminders | Yellow highlight |
+| **Omit** | `[[text]]` | Content to exclude from exports | Dimmed with strikethrough |
+| **Tag** | `#tag` | Categorical labels, topics | Blue pill |
 
 ---
 
@@ -97,7 +127,7 @@ Unlike traditional comments that sit in margins, BIAS Writer annotations live **
 
 **Examples:**
 ```markdown
-The protagonist entered ((TODO: describe the castle)) the great hall.
+The protagonist entered ((TODO: research medieval architecture)) the great hall.
 
 She smiled ((is this the right emotion?)) and waved goodbye.
 
@@ -128,9 +158,6 @@ the villain.
 
 The meeting covered [[extensive technical details about the algorithm]] 
 the new product launch.
-
-Chapter 3 begins with [[a long description that my editor didn't like]] 
-the main event.
 ```
 
 **Use cases:**
@@ -138,11 +165,10 @@ the main event.
 - Alternative versions
 - Deleted scenes
 - Verbose passages
-- Behind-the-scenes notes
 
 **Visual appearance:** Dimmed text with strikethrough
 
-**Special feature:** Toggle visibility on/off with omit elision
+**Special feature:** Toggle visibility on/off in the editor to preview your final version.
 
 ---
 
@@ -156,8 +182,6 @@ the main event.
 ```markdown
 The lab developed a new algorithm #machinelearning #innovation
 
-She discovered her powers #characterdevelopment #act1
-
 This chapter needs work #needsrevision #draft1
 ```
 
@@ -167,14 +191,15 @@ This chapter needs work #needsrevision #draft1
 - Case-insensitive (stored as lowercase)
 - No spaces (use hyphens: `#character-arc`)
 
-**Use cases:**
-- Scene organization
-- Character tracking
-- Theme tagging
-- Status indicators
-- Content categorization
-
 **Visual appearance:** Blue text with pill-style background
+
+---
+
+### Footnotes
+
+**Syntax:** `[^1]` inline, with `[^1]: Your text here.` at the bottom of the document.
+
+Insert footnotes from the formatting toolbar or with `⌘⌥F`. Footnotes are automatically collected into a Notes section on export and renumbered as needed.
 
 ---
 
@@ -185,9 +210,8 @@ The Find Panel is your command center for navigating annotations across all docu
 ### Opening the Find Panel
 
 **Methods:**
-- Click "Find" button in toolbar
-- Press `Cmd + F`
-- Click any annotation to open relevant mode
+- Press `⌘F`
+- Tap the magnifying glass icon in the sidebar
 
 ### Four Modes
 
@@ -197,10 +221,8 @@ The Find Panel is your command center for navigating annotations across all docu
 
 **Features:**
 - Search any text in your documents
-- Case-sensitive option
-- Regular expression support
-- Whole word matching
 - Shows results with context
+- Tap any result to jump to that location in the editor
 
 **Example:** Search for "castle" to find all mentions across your novel.
 
@@ -212,21 +234,21 @@ The Find Panel is your command center for navigating annotations across all docu
 
 **How it works:**
 
-**Stage 1 - Show All Memos:**
+**Stage 1 — Show All Memos:**
 ```
 Display: "12/12 memos found"
 ```
 - Automatically collects ALL memos from ALL documents
 - Groups by document
 - Shows memo content with context
-- Click any memo to jump to it in editor
+- Tap any memo to jump to it in the editor
 
-**Stage 2 - Filter Memos:**
+**Stage 2 — Filter Memos:**
 ```
 Type "TODO" in filter box
 Display: "3/12 memos found"
 ```
-- Searches within the 12 collected memos
+- Searches within the collected memos
 - Only shows memos containing "TODO"
 - Maintains document grouping
 - Clear X/Y count shows filtered vs. total
@@ -235,7 +257,7 @@ Display: "3/12 memos found"
 1. Open Memos mode → See all 45 memos across 12 documents
 2. Type "character" → Find 8 memos about characters
 3. Type "Alice character" → Narrow to 3 memos about Alice
-4. Click result → Jump directly to that memo in its document
+4. Tap result → Jump directly to that memo in its document
 
 ---
 
@@ -243,29 +265,9 @@ Display: "3/12 memos found"
 
 **Purpose:** Browse and filter all `[[omits]]` in your project
 
-**How it works:**
+Same two-stage approach as Memos mode. See all omitted content across your project, then filter to find specific cuts.
 
-**Stage 1 - Show All Omits:**
-```
-Display: "8/8 omits found"
-```
-- Collects ALL omitted content
-- Shows what you've cut but kept
-- Useful for reviewing deleted scenes
-
-**Stage 2 - Filter Omits:**
-```
-Type "combat" in filter box
-Display: "2/8 omits found"
-```
-- Find specific omitted content
-- Review related cuts together
-- Restore content if needed
-
-**Special feature:** Toggle omit visibility in editor
-- Click "Show/Hide in editor" button
-- Hides omitted text completely (shows [...])
-- Helps see final version while writing
+**Special feature:** Toggle omit visibility in the editor to hide omitted text and preview your final version.
 
 **Example workflow:**
 1. Open Omits mode → See all 23 omitted sections
@@ -279,21 +281,18 @@ Display: "2/8 omits found"
 
 **Purpose:** View all `#tags` and find their instances
 
-**How it works:**
-
 **Tag Collection:**
 ```
 Display: "15 tags found"
 Shows: #needsrevision (8), #act1 (12), #Alice (7), ...
 ```
-- Automatically extracts all unique tags
-- Shows occurrence count for each
-- Displays as clickable pills
+- Extracts all unique tags with occurrence counts
+- Displays as tappable pills
 - Sorted alphabetically
 
 **Tag Instance View:**
 ```
-Click "#needsrevision"
+Tap "#needsrevision"
 Display: Shows all 8 instances across documents
 ```
 - See every place you used that tag
@@ -303,7 +302,7 @@ Display: Shows all 8 instances across documents
 
 **Example workflow:**
 1. Open Tags mode → See all 20 tags in your novel
-2. Click `#characterdev` → Find all 15 character development scenes
+2. Tap `#characterdev` → Find all 15 character development scenes
 3. Review distribution across chapters
 4. Plan revision priorities
 
@@ -321,41 +320,60 @@ BIAS Writer: 1) Click "Memos"  2) Type "TODO"
 
 ### Why It Matters
 
-**1. Intuitive Interface**
-- No need to learn boolean operators
-- Visual mode selection
-- Natural language search
+**Intuitive Interface** — No need to learn boolean operators. Visual mode selection. Natural language search.
 
-**2. Clear Results**
-- Always shows filtered/total counts
-- "3/12 memos found" is immediately understandable
-- Know your search scope at a glance
+**Clear Results** — Always shows filtered/total counts. "3/12 memos found" is immediately understandable. Know your search scope at a glance.
 
-**3. Categorical Focus**
-- Results never mix types
-- Memos stay separate from omits
-- Maintains mental model
+**Categorical Focus** — Results never mix types. Memos stay separate from omits. Maintains your mental model.
 
-**4. Compound Queries Made Simple**
-- Want memos about characters in Act 1?
-- Tag scenes with `#act1`, add memos with `((character notes))`
-- Filter tags to `#act1`, then filter memos containing "character"
-- No complex syntax needed
+**Compound Queries Made Simple** — Want memos about characters in Act 1? Tag scenes with `#act1`, add memos with `((character notes))`. Filter tags to `#act1`, then filter memos containing "character." No complex syntax needed.
 
 ### The X/Y Count Format
 
 The count display always shows: **"X/Y [type] found"**
 
-**What it means:**
 - **X** = Results matching your current filter
 - **Y** = Total items of this type in project
-- **[type]** = memos, omits, or tags
+- Examples: `12/12 memos found` (no filter), `3/12 memos found` (filter active), `15 tags found` (tag collection)
 
-**Examples:**
-- `12/12 memos found` - No filter applied, showing all memos
-- `3/12 memos found` - Filter active, 3 match out of 12 total
-- `1/8 omits found` - Very specific search
-- `15 tags found` - Tag collection (no filtering yet)
+---
+
+## The Library
+
+### Sidebar Layout
+
+The sidebar contains tabs for navigating your content:
+
+- **Projects tab** — All your projects
+- **Documents tab** — Documents in the current project
+- **Find tab** — The Find Panel
+
+### Documents Tab
+
+Shows all documents in your current project.
+
+**View controls:**
+- **Active / Archived toggle** — Switch between active and archived documents
+- **Reference Only filter** — Show only reference documents
+- **Sort dropdown** — Manual, Date Modified, Date Created, Name, or Word Count
+- **Sort direction** — Ascending or descending
+- **Selection Mode** — Tap the selection icon for bulk operations
+
+Drag-and-drop to reorder documents in Manual sort mode.
+
+### Projects Tab
+
+Shows all your projects.
+
+**View controls:**
+- **Active / Archived toggle** — Switch between active and archived projects
+- **Sort dropdown** — Manual, Date Modified, Date Created, or Name
+
+**Project actions (swipe or long-press):**
+- **Edit** — Rename or add project notes
+- **Duplicate** — Copy the entire project with all documents
+- **Archive** — Move to archive (reversible)
+- **Delete** — Soft-delete with 30-day recovery
 
 ---
 
@@ -363,323 +381,77 @@ The count display always shows: **"X/Y [type] found"**
 
 ### Creating Documents
 
-**Methods:**
-- Click "+ New" button
-- Import from file
+Tap the `+` button in the sidebar. The first line of your document automatically becomes its title.
 
-**Automatic features:**
-- Title extracted from first line
-- Tags extracted from content
-- Word count calculated (excluding annotations)
-- Timestamps tracked
+### Importing Documents
+
+Overflow menu (three dots) → Import Files. Supported formats:
+- Markdown (.md)
+- Plain text (.txt)
+- RTF (.rtf)
+- Word documents (.docx) — coming soon
 
 ### Document Types
 
-**Normal Documents:**
-- Default type
-- For active writing
-- Full editing capabilities
-- No special indicators
+**Normal documents** — Default type for active writing. Full editing capabilities.
 
-**Reference Documents:**
-- Colored dot indicator
-- "Reference" watermark overlay
-- Blue line in editor
-- For research, notes, background material
-- Separate visual treatment
-- Can be excluded from certain operations
+**Reference documents** — For research, notes, and background material. Marked with a blue indicator bar on the left edge and a faint diamond watermark in the editor. Reference documents don't count toward project word totals.
 
-### Document Operations
+Mark any document as reference via long-press or swipe → "Make Reference."
 
-**Single Document Operations:**
+### Document Actions
 
-**Duplicate:**
-- Creates exact copy
-- Placed after original
-- Useful for alternative versions
-
-**Split Document:**
-- Split at cursor position
-- Split at headers (H1, H2, or H3)
-- Creates multiple documents from one
-- Preserves or archives original
-- Maintains document order
-
-**Merge Documents:**
-- Combine multiple documents into one
-- Opens merge dialog with document selector
-- Choose which documents to merge
-- Select merge order
-- Creates new merged document
-- Original documents can be kept, archived, or deleted
-
-**Archive:**
-- Hides from main document list
-- Preserves all content and metadata
-- Accessible via "Show Archived" toggle
-- Useful for old drafts or unused content
-- Reversible operation (can restore anytime)
-- **Find Panel behavior:** When "Show Archived" is ON, Find Panel searches ONLY archived documents. When OFF, searches only active documents.
-
-**Delete:**
-- Permanent removal
-- Confirmation required
-- Cannot be undone
+**Single document (swipe or long-press):**
+- **Duplicate** — Create an exact copy placed after the original
+- **Make Reference / Make Regular** — Toggle reference status
+- **Archive** — Move to archive (reversible)
+- **Delete** — Soft-delete with 30-day recovery
 
 ---
 
 ### Selection Mode & Bulk Operations
 
-**Activate Selection Mode:**
-- Click selection icon in Library panel
-- Enter multi-select mode
-- Checkboxes appear next to documents
+**Activate Selection Mode:** Tap the selection icon in the documents tab. Checkboxes appear next to all documents.
 
-**Select Documents:**
-- Click checkboxes to select multiple documents
-- Select all with "Select All" button
-- Deselect with "Clear Selection"
+**Bulk operations available:**
 
-**Bulk Operations Available:**
+**Merge:** Combine selected documents into one. Opens a merge dialog where you choose the order. Creates a new merged document.
 
-**Duplicate + Archive Original:**
-- Duplicates all selected documents
-- Archives the originals automatically
-- Perfect for creating new draft versions
-- Maintains document order
-- **Example:** Select chapters 1-5 → Duplicate + Archive → Get fresh copies, originals safely archived
+**Duplicate:** Copy all selected documents.
 
-**Bulk Tag:**
-- Add tags to multiple documents at once
-- Opens tag input dialog
-- Enter tags (e.g., `#draft2 #revised`)
-- Tags added to all selected documents
-- **Example:** Select all Act 1 scenes → Add `#act1 #needsrevision`
+**Duplicate + Archive:** Duplicate selected documents and automatically archive the originals. Perfect for creating new draft versions while preserving the original.
 
-**Bulk Archive:**
-- Archive multiple documents simultaneously
-- All selected documents moved to archive view
-- Preserves all content and metadata
+**Archive:** Archive all selected documents simultaneously.
 
-**Bulk Delete:**
-- Delete multiple documents at once
-- Confirmation dialog shows count
-- Permanent - cannot be undone
-- Use carefully!
+**Add Tag:** Add tags to multiple documents at once. Opens a tag input dialog.
 
-**Exit Selection Mode:**
-- Click selection icon again
-- Or click "Cancel" / "Done"
+**Make Reference / Make Regular:** Toggle reference status on all selected documents.
+
+**Delete:** Soft-delete all selected documents.
+
+**Exit Selection Mode:** Tap the selection icon again.
 
 ---
 
-### Library Panel Organization
-
-**Two Tabs:**
-
-**Documents Tab:**
-- Shows all documents in current project
-- **View Controls:**
-  - "Show Archived" toggle - View archived documents
-  - "Reference Only" toggle - Show only reference documents
-  - Sort dropdown - Manual, Alphabetical, Created, Modified
-  - Selection Mode button - Activate bulk operations
-- Drag-and-drop to reorder (in Manual sort mode)
-
-**Projects Tab:**
-- Shows all projects
-- **View Controls:**
-  - "Show Archived" toggle - View archived projects
-  - Sort dropdown - Sort projects
-- Drag-and-drop to reorder projects
-
----
-
-### Right-Click / Swipe Controls
-
-**Document Controls** (Right-click or swipe on document):
-- **Mark as Reference** / **Mark as Normal** - Toggle reference status
-- **Archive** - Move to archive
-- **Restore** (if archived) - Bring back to active list
-
-**Project Controls** (Right-click or swipe on project):
-- **Edit Name** - Rename project
-- **Add Notes** - Add project description/notes
-- **Archive** - Move project to archive
-- **Delete** - Permanently remove project
-
-**Mobile Gestures:**
-- Swipe left/right on document or project
-- Reveals action buttons
-- Quick access to common operations
-
----
-
-### Toolbar & Menu System
-
-**Formatting Toolbar** (Sliders icon):
-- Click sliders icon to open formatting toolbar
-- **Text Formatting:**
-  - `((` Insert memo
-  - `[[` Insert omit
-  - **B** Bold
-  - **I** Italic
-  - `>"` Blockquote
-  - `[^` Add footnote
-  - **Split button** - Opens split panel (split at cursor or at headings)
-- **Page Navigation:**
-  - Navigate between pages/sections
-  - Jump to specific locations
-
-**Three-Dot Menu** (Main application menu):
-
-**ACTIONS:**
-- **Import Files...** - Import documents from your device
-- **Export Document(s)...** - Export current or selected documents
-
-**TOOLS:**
-- **Sprint & Stats** - Access Sprint Mode and Statistics Panel
-- **Shortcuts** - View keyboard shortcuts reference
-- **Quick Tour** - Interactive tutorial for new users
-
-**SETTINGS:**
-- **Theme:** Light | Dark | System - Choose appearance
-- **Settings** - Configure app preferences
-- **Help & Documentation** - Access user guides
-- **About BIAS Writer** - Version and app information
-- **Sign Out** - Log out of your account
-
----
-
-### Sprint & Stats
-
-**Access:** Three-dot menu → "Sprint & Stats"
-
-Opens Sprint & Stats panel with timer and live statistics.
-
-**Sprint & Stats Panel:**
-
-**Controls:**
-- **Play button** - Start writing session
-- **Reset button** - Reset timer to 0:00
-- **Timer button** - Set timer duration
-- **Bell button** - Timer alarm/notification settings
-
-**Timer Display:**
-- Large timer shows: `1:00` (minutes:seconds)
-- Set duration with input field (e.g., "1 minutes")
-- Timer counts down or up during writing
-- Visual notification when countdown timer finishes (no audio alarm)
-
-**Live Statistics:**
-- **Document icon + number** - Current document word count (e.g., 106 words)
-- **Folder icon + number** - Total project word count (e.g., 2,063 words)
-- Updates in real-time as you type
-
-**Show word count pill:**
-- Checkbox to enable/disable
-- When enabled, shows floating word count indicator while writing
-- Displays progress without opening panel
-
-**How to Use:**
-
-**Timer Countdown:**
-1. Click timer button
-2. Enter duration (e.g., 25 minutes for Pomodoro)
-3. Click play to start
-4. Write while timer counts down
-5. Visual notification when time is up (no audio)
-
-**Timer Count-Up:**
-1. Leave timer at 0:00
-2. Click play to start
-3. Timer counts up to track session length
-4. Monitor how long you've been writing
-
-**Track Progress:**
-- Watch document word count grow in real-time
-- See project total update as you write
-- Enable word count pill for persistent display
-- Use timer for focused writing sessions
-
-**Use Cases:**
-- **Pomodoro Technique:** 25-minute focused sessions
-- **Daily Writing Habit:** Track time spent writing
-- **Sprint Sessions:** Timed writing challenges
-- **Progress Monitoring:** Watch word count climb
-- **Distraction-Free:** Minimize panel, enable word count pill
-
----
-
-### Desktop Focus Mode
-
-**Purpose:** Distraction-free writing by hiding the Library panel
-
-**Activate Focus Mode:**
-- **Keyboard:** `Shift + Cmd + L`
-- **Click:** Chevron button to collapse/expand Library panel
-
-**In Focus Mode:**
-- Library panel hidden
-- Full width for editor
-- All editing features still available
-- Formatting toolbar still accessible
-- Find Panel still works
-
-**Exit Focus Mode:**
-- Press `Shift + Cmd + L` again
-- Click chevron button to restore Library panel
-
-**Use Cases:**
-- Distraction-free writing sessions
-- Focus on current document only
-- Maximize screen space for editor
-- Reduce visual clutter
-- Pair with Sprint & Stats timer for deep work
-
----
-
-### Sorting Options
-
-**Manual:** Drag-and-drop custom order
-**Alphabetical:** By document title
-**Created:** Newest or oldest first
-**Modified:** Recently edited first
-
-### Split Document Feature
+### Split Document
 
 Break large documents into smaller, more manageable pieces.
 
-**Access Split Panel:**
-- Click Split button in formatting toolbar (sliders icon)
-- Or right-click document → Split
-- Opens split panel with options
+**Access:** Tap the split button in the **formatting toolbar** (sliders icon).
 
-**Split Methods:**
-
-**1. Split at Cursor:**
+**Split at Cursor:**
 - Place cursor where you want to split
-- Open split panel
 - Select "Split at Cursor"
-- Creates two documents at cursor position
-- Content before cursor → First document
-- Content after cursor → Second document
+- Content before cursor → first document
+- Content after cursor → second document
 
-**2. Split at Headers:**
-- Open split panel
+**Split at Headers:**
 - Choose header level (H1, H2, or H3)
-- Automatically creates one document per header
-- Each section becomes its own document
-- Header text becomes document title
+- One document created per header section
+- Header text becomes each document's title
 - Maintains document order
 
-**After Splitting:**
-- Choose what to do with original:
-  - **Keep:** Original stays in library
-  - **Archive:** Original moved to archive
-  - **Delete:** Original removed
-- New documents appear in order after original
-- All annotations preserved in each section
+**After splitting:** The original document is archived. New documents appear in order in the document list. All annotations are preserved in each section.
 
 **Example:**
 ```
@@ -693,32 +465,176 @@ Result:
 Original: Archived
 ```
 
-**Use cases:**
-- Break long manuscripts into chapters
-- Separate research sections
-- Divide by topic or theme
-- Create smaller, focused documents
+---
 
 ### Viewing Archived Documents
 
-**Toggle archived view:**
-- Click "Show Archived" in Library panel
-- Switches to archived-only view
-- Find Panel searches only archived documents in this view
-- Restore documents back to active list
-- Permanently delete archived documents
+Toggle to "Archived" in the document list view controls.
 
-**Important:** When viewing archived documents:
-- ✅ Find Panel searches ONLY archived documents
-- ✅ Active documents are hidden from view
-- ✅ Toggle back to see active documents again
-- ✅ Find Panel automatically switches scope based on view
+**When viewing archived documents:**
+- Find Panel searches only archived documents
+- Active documents are hidden from view
+- Toggle back to see active documents again
+- Restore documents back to the active list via swipe or long-press
+
+---
+
+## Deleting and Recovery
+
+### Soft-Delete
+
+When you delete a project or document — from the active list, archive, or selection mode — it's soft-deleted. Hidden from your library but recoverable for 30 days.
+
+A confirmation dialog tells you: "You can restore it from Settings → Recovery for 30 days."
+
+### Recovery View
+
+**Settings → Recovery**
+
+The Recovery view has two sections:
+
+**Projects:** Deleted projects with document count and deletion date. Restore brings back the project and all its documents. If the project was archived before deletion, it returns to the archive.
+
+**Documents:** Individually deleted documents whose parent project still exists. Shows the document title and parent project name. Restore puts the document back in its project.
+
+Each item can be **Restored** or **Deleted Permanently** (with a second confirmation). Use the search bar to find specific items.
+
+After 30 days, items are automatically purged.
+
+---
+
+## Writing Tools
+
+### Formatting Toolbar
+
+Tap the sliders icon to toggle the formatting toolbar.
+
+On **iPhone**, it drops down below the toolbar as an overlay with a translucent background. On **iPad and Mac**, it appears inline in the toolbar.
+
+**Toolbar buttons:**
+- **← / →** — Navigate to previous/next document
+- **Memo** — Insert `(( ))` markers
+- **Omit** — Insert `[[ ]]` markers
+- **B** — Bold
+- **I** — Italic
+- **Blockquote** — Insert `>`
+- **Footnote** — Open footnote insertion
+- **Split** — Open the split panel
+
+---
+
+### Sprint & Stats
+
+**Access:** Overflow menu → Sprint & Stats
+
+A writing sprint timer with real-time word count tracking.
+
+**Timer modes:**
+- **Countdown** — Set a duration (e.g., 25 minutes for Pomodoro). Visual notification when time is up.
+- **Count-up** — Start from 0:00 to track session length.
+
+**Live statistics:**
+- Current document word count
+- Total project word count
+- Updates in real time as you type
+
+**Ghost counter:** Enable the word count pill for a floating word count display while writing, without keeping the Sprint panel open.
+
+**Use cases:**
+- **Pomodoro Technique:** 25-minute focused sessions
+- **Daily Writing Habit:** Track time spent writing
+- **Sprint Sessions:** Timed writing challenges
+- **Progress Monitoring:** Watch word count climb
+
+---
+
+### Inspiration
+
+**Access:** Overflow menu → Inspiration
+
+Shows a random writing quote for motivation.
+
+---
+
+### Print
+
+**Access:** Overflow menu → Print
+
+Uses the native iOS/macOS print system.
+
+---
+
+## Export Features
+
+**Access:** Overflow menu → Export
+
+### Export Formats
+
+- **Markdown** (.md) — Preserves all syntax, re-importable, compatible with all text editors
+- **Plain Text** (.txt) — Raw text, no formatting
+- **PDF** — Paginated, print-ready, professional presentation
+- **HTML** — Web-ready format
+
+### Annotation Control
+
+Control which annotations appear in exports:
+
+| Option | Default | Effect |
+|--------|---------|--------|
+| Include Memos | OFF | Show/hide `(( ))` content |
+| Include Omits | OFF | Show/hide `[[ ]]` content |
+| Include Tags | ON | Show/hide `#tags` |
+
+**Clean manuscript for publisher:** All three OFF. Markdown syntax, memos, omits, and tags are stripped. Your clean document remains.
+
+**Draft for editor with notes:** Memos ON, Tags ON, Omits OFF. Text with your notes visible, cuts hidden.
+
+**Review deleted content:** Memos OFF, Omits ON, Tags OFF. See what was cut.
+
+Footnotes are automatically collected into a Notes section at the end of your export.
+
+---
+
+## Settings
+
+**Access:** Overflow menu → Settings
+
+### Appearance
+
+**Theme:** Light, Dark, or System.
+
+### Typography
+
+**Font Size:** Small, Medium, or Large.
+
+**Font Family:** Sans, Serif, or Mono.
+
+### Author Info
+
+Your information for export headers:
+- Name
+- Email
+- Phone
+- Representation
+
+### Subscription
+
+- **Manage Subscription** — View or change your plan
+- **Restore Purchases** — Restore a previous subscription
+
+### Recovery
+
+Access the 30-day recovery system for deleted projects and documents. See [Deleting and Recovery](#deleting-and-recovery).
+
+### About BIAS Writer
+
+Version info, links to website, help, support, privacy policy, terms of service, and contact emails.
 
 ---
 
 ## Project Organization
 
-### What is a Project?
+### What Is a Project?
 
 A project is a collection of related documents. Think:
 - **Novel:** All chapters and notes
@@ -732,128 +648,90 @@ A project is a collection of related documents. Think:
 - Each project has its own documents
 - Tags don't cross projects
 - Separate search scopes
-- Independent settings
 
 **Project actions:**
 - Create unlimited projects
 - Duplicate entire project (with all documents)
-- Delete project (removes all documents)
+- Archive (reversible)
+- Delete (30-day recovery)
 - Switch between projects instantly
 
 ### Best Practices
 
 **Keep projects focused:**
-✅ Good: "Fantasy Novel - Book 1"
-❌ Too broad: "All My Writing"
+- ✅ Good: "Fantasy Novel — Book 1"
+- ❌ Too broad: "All My Writing"
 
 **Use projects for versions:**
-- "Novel - First Draft"
-- "Novel - Second Draft"
-- "Novel - Editor Version"
+- "Novel — First Draft"
+- "Novel — Second Draft"
+- "Novel — Editor Version"
 
-**Separate reference material:**
-- Main project for manuscript
-- Reference project for research
-- Use document types within projects
+**Use reference documents** for research and background material within a project, rather than mixing them with your main writing.
 
 ---
 
-## Export Features
+## Markdown Guide
 
-### Export Formats
+BIAS Writer supports standard markdown syntax:
 
-**Markdown:**
-- Universal text format
-- Preserves all syntax
-- Full annotation fidelity
-- Re-importable
-- Compatible with all text editors
+| Syntax | Result |
+|--------|--------|
+| `# Heading 1` | Large heading |
+| `## Heading 2` | Medium heading |
+| `### Heading 3` | Small heading |
+| `**bold**` | **bold** |
+| `*italic*` | *italic* |
+| `> blockquote` | Blockquote |
+| `---` | Horizontal rule |
+| `[^1]` | Footnote reference |
 
-**PDF:**
-- Paginated output
-- Print-ready
-- Locked format
-- Professional presentation
-
-### Selective Export (Key Feature)
-
-Control which annotations appear in exports:
-
-**Export dialog options:**
-```
-☑ Include Memos (default: OFF)
-☑ Include Omits (default: OFF)
-☑ Include Tags (default: ON)
-```
-
-**Example scenarios:**
-
-**1. Clean manuscript for publisher:**
-```
-☐ Memos - OFF (remove all notes)
-☐ Omits - OFF (remove cut content)
-☐ Tags - OFF (remove labels)
-Result: Pure text, no annotations
-```
-
-**2. Draft for editor with notes:**
-```
-☑ Memos - ON (show editing notes)
-☐ Omits - OFF (hide cuts)
-☑ Tags - ON (show scene labels)
-Result: Text with your notes visible
-```
-
-**3. Review deleted content:**
-```
-☐ Memos - OFF
-☑ Omits - ON (show what was cut)
-☐ Tags - OFF
-Result: See only omitted content
-```
+Headers must start at the beginning of a line: `#`, then a space, then your text.
 
 ---
 
 ## Keyboard Shortcuts
 
-### Global
+### Formatting
 
-| Action | macOS | Windows/Linux |
-|--------|-------|---------------|
-| Open/Close Find Panel | `Cmd + F` | `Ctrl + F` |
-| Add Memo | `Cmd + 9` or `Cmd + 0` | `Ctrl + 9` or `Ctrl + 0` |
-| Add Omit | `Cmd + [` or `Cmd + ]` | `Ctrl + [` or `Ctrl + ]` |
-| Toggle Desktop Focus Mode | `Shift + Cmd + L` | `Shift + Ctrl + L` |
-| Close Panel | `Esc` | `Esc` |
+| Action | Shortcut |
+|--------|----------|
+| Bold | `⌘B` |
+| Italic | `⌘I` |
+| Memo | `⌘9` or `⌘0` |
+| Omit | `⌘]` or `⌘[` |
+| Blockquote | `⌘'` |
+| Footnote | `⌘⌥F` |
+| Heading 1 | `⌘⇧1` |
+| Heading 2 | `⌘⇧2` |
+| Heading 3 | `⌘⇧3` |
+
+### Navigation & Tools
+
+| Action | Shortcut |
+|--------|----------|
+| Find Panel | `⌘F` |
+| Toggle Sidebar | `⌘\` |
+| Toggle Formatting Bar | `⇧⌘F` |
+| New Document | `⌘N` |
+| New Project | `⇧⌘N` |
+| Duplicate Document | `⇧⌘D` |
+| Split at Cursor | `⇧⌘S` |
+| Settings | `⌘,` |
 
 ### Editor
 
 | Action | Shortcut |
 |--------|----------|
-| Bold | `Cmd + B` |
-| Italic | `Cmd + I` |
-| Undo | `Cmd + Z` |
-| Redo | `Cmd + Shift + Z` |
-| Select All | `Cmd + A` |
-
-### Find Panel Navigation
-
-| Action | Method |
-|--------|--------|
-| Navigate Results | Click on result |
-| Close Find Panel | `Esc` or `Cmd + F` |
-| Add Memo | `Cmd + 9` or `Cmd + 0` |
-| Add Omit | `Cmd + [` or `Cmd + ]` |
-
-### Annotation Shortcuts (Future)
-
-*Coming soon:* Quick insertion of annotation syntax
+| Undo | `⌘Z` |
+| Redo | `⌘⇧Z` |
+| Select All | `⌘A` |
 
 ---
 
 ## Use Cases & Workflows
 
-### Use Case 1: TODO Item Management
+### TODO Management
 
 **Scenario:** You're drafting a novel and need to track research tasks.
 
@@ -862,9 +740,7 @@ Result: See only omitted content
    ```
    The castle ((TODO: research medieval architecture)) loomed ahead.
    ```
-
 2. Continue writing without breaking flow
-
 3. When ready to research:
    - Open Find Panel → Memos mode
    - See all memos: `45/45 memos found`
@@ -872,720 +748,158 @@ Result: See only omitted content
    - Work through each TODO item
    - Update or remove memos as completed
 
-**Benefits:**
-- Never lose track of research needs
-- Continue writing without interruption
-- Batch research tasks efficiently
-- Clear visual of progress (X/Y count)
-
 ---
 
-### Use Case 2: Revision Tracking
+### Revision Tracking
 
 **Scenario:** Your editor requested changes across multiple chapters.
 
 **Workflow:**
-1. As you revise, tag affected scenes:
-   ```
-   The confrontation scene begins here. #needsrevision #pacing
-   ```
-
-2. Add memos for specific notes:
-   ```
-   She turned away ((editor note: strengthen her motivation here))
-   ```
-
-3. Use omits for cuts:
-   ```
-   The dialogue continued [[with excessive back-and-forth]] briefly.
-   ```
-
-4. Review progress:
-   - Tags mode → Click `#needsrevision`
-   - See all flagged scenes
-   - Check off completed revisions
-   - Remove tags when done
-
-**Benefits:**
-- Visual tracking of revision status
-- Editor notes preserved inline
-- Easy to find what needs work
-- Cut content saved for reference
+1. Tag affected scenes: `#needsrevision #pacing`
+2. Add specific notes: `She turned away ((editor note: strengthen her motivation here))`
+3. Use omits for cuts: `The dialogue continued [[with excessive back-and-forth]] briefly.`
+4. Review progress: Tags mode → tap `#needsrevision` → see all flagged scenes
+5. Remove tags as you complete revisions
 
 ---
 
-### Use Case 3: Theme Analysis
+### Theme Analysis
 
 **Scenario:** You want to track themes across your novel.
 
 **Workflow:**
-1. Tag thematically significant passages:
-   ```
-   The butterfly imagery returns. #redemption #transformation
-   
-   Another reference to water. #purification #rebirth
-   ```
-
-2. Analyze distribution:
-   - Tags mode → View all theme tags
-   - Click `#redemption` → See 23 instances
-   - Click `#transformation` → See 18 instances
-   - Note which chapters lack theme development
-
-3. Balance themes:
-   - Identify chapters without key themes
-   - Add thematic elements where needed
-   - Ensure even distribution across acts
-
-**Benefits:**
-- Visual map of theme distribution
-- Identify gaps in thematic development
-- Balance across narrative structure
-- Track multiple themes simultaneously
+1. Tag thematic passages: `The butterfly imagery returns. #redemption #transformation`
+2. Open Tags mode → see distribution across manuscripts
+3. Identify chapters that lack key themes
+4. Balance development across acts
 
 ---
 
-### Use Case 4: Multi-Version Management
+### Starting a New Draft
 
-**Scenario:** You're writing alternative versions of a scene.
+**Scenario:** Ready to revise your manuscript.
 
 **Workflow:**
-1. Write primary version normally
-
-2. Add alternative in omits:
-   ```
-   She reached for the door. [[Alternative: She hesitated, then reached for the door, her hand trembling.]]
-   ```
-
-3. Keep both versions:
-   - Main text is primary version
-   - Omit contains alternative
-   - Toggle omit elision to preview each
-
-4. Decision time:
-   - Review all alternatives in Omits mode
-   - Promote alternatives by moving out of `[[]]`
-   - Delete unused versions
-
-**Benefits:**
-- Both versions preserved
-- Easy A/B comparison
-- No separate files needed
-- Quick switching between versions
+1. Enter Selection Mode → select all chapters
+2. Tap "Duplicate + Archive"
+3. Get fresh copies to revise, originals safely archived
+4. Tag the new version: `#draft2 #revision-2026`
 
 ---
 
-### Use Case 5: Collaborative Feedback
+### Breaking Up Large Manuscripts
 
-**Scenario:** Multiple beta readers are giving feedback.
+**Scenario:** You have a long document that needs to be split into chapters.
 
 **Workflow:**
-1. Tag feedback by reader:
-   ```
-   This metaphor is confusing. ((Sarah: simplify)) #feedback-sarah
-   
-   Love this scene! ((Mike: keep this tone)) #feedback-mike
-   ```
-
-2. Organize feedback:
-   - Tags mode → See all readers' tags
-   - Click `#feedback-sarah` → Sarah's comments
-   - Click `#feedback-mike` → Mike's comments
-   - Address feedback systematically
-
-3. Track implementation:
-   - Add `#implemented` tag when addressed
-   - Filter memos to find unaddressed notes
-   - Remove memos when complete
-
-**Benefits:**
-- Feedback organized by source
-- Easy to address one reader at a time
-- Track implementation progress
-- Nothing gets lost
+1. Import the long document
+2. Add headers at chapter breaks: `## Chapter 1`, `## Chapter 2`, etc.
+3. Open the Split tool from the formatting toolbar
+4. Split at H2 headers
+5. Each chapter becomes its own document, original archived
 
 ---
 
-### Use Case 6: Breaking Up Large Manuscripts
+### Daily Writing Sessions
 
-**Scenario:** You've drafted your entire novel in one document (80,000 words) and need to split it into chapters.
+**Scenario:** Building a consistent writing habit.
 
 **Workflow:**
-1. Add H2 headers for each chapter:
-   ```markdown
-   ## Chapter 1: The Beginning
-   [chapter content]
-   
-   ## Chapter 2: The Journey
-   [chapter content]
-   
-   ## Chapter 3: The Conflict
-   [chapter content]
-   ```
-
-2. Use Split Document feature:
-   - Click Split button in formatting toolbar
-   - Select "Split at H2 headers"
-   - Choose "Archive original"
-   - Confirm split
-
-3. Result:
-   - 20 individual chapter documents created
-   - Each titled from its header
-   - Original archived for backup
-   - All annotations preserved in their chapters
-
-4. Benefits:
-   - Easier to navigate specific chapters
-   - Faster Find Panel searches (smaller scope)
-   - Can reorder chapters via drag-and-drop
-   - Can work on chapters independently
-
-**Benefits:**
-- Transform monolithic document into organized structure
-- Maintain all content and annotations
-- Improve performance and usability
-- Keep original as backup
-
----
-
-### Use Case 7: Starting a New Draft Version
-
-**Scenario:** You've finished your first draft and want to start a second draft while preserving the original.
-
-**Workflow:**
-1. Enter Selection Mode in Library panel
-
-2. Select all documents you want to revise:
-   - Click "Select All" for entire manuscript
-   - Or select specific chapters/sections
-
-3. Use "Duplicate + Archive":
-   - Click "Duplicate + Archive" button
-   - System creates duplicates of all selected documents
-   - Original documents automatically archived
-   - New documents appear in library
-
-4. Tag new draft version:
-   - With documents still selected (or select again)
-   - Click "Bulk Tag" button
-   - Add tags: `#draft2 #2025-revision`
-   - All new documents tagged
-
-5. Begin revision work:
-   - Work on new documents freely
-   - Original draft safely archived
-   - Access archive anytime to reference original
-
-**Benefits:**
-- One-click creation of new draft version
-- Originals preserved and accessible
-- Clear version separation with tags
-- No manual copying needed
-- Perfect for major revisions
-
-**Alternative workflow - Per Chapter:**
-- Select just chapters needing heavy revision
-- Duplicate + Archive those
-- Keep other chapters as active documents
-- Mix old and new draft in one project
-
----
-
-### Use Case 8: Daily Writing Sessions with Timer
-
-**Scenario:** You want to build a consistent daily writing habit with timed sessions.
-
-**Workflow:**
-1. Open your current chapter/document
-
-2. Open Sprint & Stats:
-   - Click three-dot menu → "Sprint & Stats"
-   - Panel opens with timer and stats
-
-3. Set up timer session:
-   - **Option A - Pomodoro (25 minutes):**
-     - Click timer button
-     - Enter "25 minutes"
-     - Click play button
-     - Write until timer visual notification appears
-   
-   - **Option B - Track time (count up):**
-     - Leave timer at 0:00
-     - Click play button
-     - Timer counts up to show session length
-
-4. Write and monitor progress:
-   - Watch document word count update in real-time
-   - See project total climb as you write
-   - Enable "Show word count pill" for persistent display
-   - Focus on writing, not checking stats
-
-5. Complete session:
-   - Visual notification appears (countdown mode)
-   - Or stop timer when done (count-up mode)
-   - Review final word counts
-   - Note session length for tracking
-
-6. Build consistency:
-   - Repeat daily at same time
-   - Track total words per session
-   - Use timer to maintain focus
-   - Build writing momentum
-
-**Benefits:**
-- Timer creates focused writing blocks
-- No distractions from word count goals
-- Real-time stats show actual progress
-- Simple: just write and watch the timer
-- Flexible: countdown or count-up modes
-- Word count pill keeps you motivated
-
-**Session Types:**
-- **Quick Sprint:** 10-15 minutes, warm up
-- **Pomodoro:** 25 minutes, take 5-minute break
-- **Deep Work:** 45-60 minutes, longer session
-- **Track & Flow:** No timer, just watch time count up
-
----
-
-## Markdown Guide
-
-BIAS Writer is a markdown editor. Here's a complete guide to markdown syntax.
-
-### Headings
-
-```markdown
-# Heading 1
-## Heading 2
-### Heading 3
-#### Heading 4
-##### Heading 5
-###### Heading 6
-```
-
-**Use headings to:**
-- Structure your document
-- Create a table of contents
-- Organize chapters and sections
-
-### Text Formatting
-
-**Bold:**
-```markdown
-**bold text** or __bold text__
-```
-
-**Italic:**
-```markdown
-*italic text* or _italic text_
-```
-
-**Bold and italic:**
-```markdown
-***bold and italic***
-```
-
-
-### Lists
-
-**Unordered:**
-```markdown
-- Item 1
-- Item 2
-  - Nested item
-- Item 3
-```
-
-**Ordered:**
-```markdown
-1. First item
-2. Second item
-   1. Nested item
-```
-
-**Task lists:**
-```markdown
-- [ ] Unchecked
-- [x] Checked
-```
-
-### Links & Images
-
-**Link:**
-```markdown
-[Link text](https://example.com)
-```
-
-**Image:**
-```markdown
-![Alt text](image.jpg)
-```
-
-**Auto-link:**
-```markdown
-<https://example.com>
-```
-
-### Blockquotes
-
-```markdown
-> This is a quote
->> Nested quote
-```
-
-### Code
-
-**Inline:**
-```markdown
-Use `code` for inline code
-```
-
-**Block:**
-````markdown
-```javascript
-function hello() {
-  console.log("Hello!");
-}
-```
-````
-
-### Horizontal Rules
-
-```markdown
----
-***
-___
-```
-
-### Tables
-
-```markdown
-| Header 1 | Header 2 |
-|----------|----------|
-| Cell 1   | Cell 2   |
-```
-
-**Alignment:**
-- `:---` Left
-- `:---:` Center
-- `---:` Right
-
-### Escaping
-
-Use `\` to escape special characters:
-```markdown
-\* \# \[ \] \( \)
-```
-
-### BIAS Writer Annotations
-
-**Memos:**
-```markdown
-((private note))
-```
-Yellow highlight, for TODOs and notes
-
-**Omits:**
-```markdown
-[[content to exclude]]
-```
-Dimmed with strikethrough, for cuts
-
-**Tags:**
-```markdown
-#tag #another-tag
-```
-Blue styling, for organization
-
-### Quick Reference
-
-```
-# H1                 ## H2                ### H3
-**bold**             *italic*             ~~strike~~
-`code`               [link](url)          ![img](url)
-> quote              
-
-- list               1. ordered           - [ ] task
----                  ((memo))             [[omit]]
-#tag                 
-
-| table |
-|-------|
-```
+1. Open Sprint & Stats from the overflow menu
+2. Set a 25-minute countdown (Pomodoro)
+3. Write — watch your word count grow in real time
+4. Enable the ghost counter for persistent word count display
+5. When the timer ends, take a break and repeat
 
 ---
 
 ## Tips & Best Practices
 
-### Annotation Best Practices
+**Write first, organize later.** Don't stop writing to categorize. Drop memos and tags as you go, then review them in batches.
 
-**Keep memos concise:**
-```
-✅ Good: ((TODO: verify date))
-❌ Too long: ((I need to check this date because I'm not sure if it's...))
-```
+**Preserve your darlings.** Before cutting beloved passages, wrap them in `[[ ]]`. You might find a place for them later.
 
-**Use tags consistently:**
-```
-✅ Good: #characterdev, #character-dev (pick one format)
-❌ Inconsistent: #characterdev, #character_development, #chardev
-```
-
-**Omits are for keeping, not discarding:**
-```
-✅ Good use: [[detailed description I might restore]]
-❌ Bad use: [[sdfjklsdjf keyboard mashing]]
-```
-
-### Workflow Tips
-
-**1. Tag early, tag often**
-- Tag scenes as you write them
-- Don't wait until revision
-- Makes finding content effortless
-
-**2. Use memo TODOs liberally**
-- Don't break writing flow to research
-- Add `((TODO: research X))` and continue
-- Batch research tasks later
-
-**3. Preserve your darlings**
-- Before cutting beloved passages, wrap in `[[]]`
-- You might find a place for them later
-- Avoids regret and loss
-
-**4. Create a tagging system**
+**Create a tagging system:**
 - Character tags: `#Alice`, `#Bob`
 - Plot tags: `#act1`, `#climax`, `#resolution`
 - Status tags: `#needswork`, `#done`, `#review`
 - Location tags: `#castle`, `#village`
 
-**5. Review counts regularly**
-- High memo count? Time to address TODOs
-- High omit count? Time to commit to cuts
-- Uneven tag distribution? Balance needed
+**Use Duplicate + Archive for major revisions.** Select documents, duplicate + archive, tag the new versions. Fresh copies to work on, originals safely preserved.
 
-**6. Use Duplicate + Archive for major revisions**
-- Select all documents (or chapters needing heavy revision)
-- Click "Duplicate + Archive"
-- Get fresh copies, originals safely preserved
-- Tag new version: `#draft2 #revision-2025`
+**Bulk tag for organization.** Select related documents in Selection Mode, add status or version tags. Makes filtering and tracking easy.
 
-**7. Bulk tag for organization**
-- Select related documents in Selection Mode
-- Add status tags: `#completed`, `#in-progress`
-- Add version tags: `#draft1`, `#draft2`
-- Makes filtering and tracking easy
+**Merge related documents.** Short chapters? Merge into longer sections. Research notes? Combine into a reference document.
 
-**8. Merge related documents**
-- Short chapters? Merge into longer sections
-- Research notes? Combine into reference document
-- Use merge dialog to control order
+**Review counts regularly.** High memo count? Time to address TODOs. High omit count? Time to commit to cuts. Uneven tag distribution? Balance needed.
 
-**9. Use Sprint & Stats for focused sessions**
-- Set timer for focused writing (25 min Pomodoro)
-- Track time with count-up timer
-- Enable word count pill for motivation
-- Build consistent daily habits
-
-**10. Monitor stats regularly**
-- Check word count progress
-- Review annotation counts (too many TODOs?)
-- Track reading time estimates
-- Use project stats to see big picture
-
-**11. Use Desktop Focus Mode for distraction-free writing**
-- Press `Shift + Cmd + L` to hide Library panel
-- Pair with Sprint & Stats timer
-- Full editor width for immersive writing
-- Toggle back when you need to navigate documents
-
-### Search Tips
-
-**Memos Mode:**
-- Leave filter empty to see all memos
-- Use keywords like "TODO", "VERIFY", "FIX"
-- Review by document to see context
-
-**Omits Mode:**
-- Filter by chapter numbers
-- Find similar cuts across manuscript
-- Toggle elision to preview final version
-
-**Tags Mode:**
-- Click tags to see distribution
-- Identify underused tags
-- Find scenes by multiple characteristics
-
-### Performance Tips
-
-**Keep documents manageable:**
-- Use Split Document feature for very long documents (>50,000 words)
-- One chapter per document works well
-- Improves search performance
-- Easier to navigate and organize
-
-**Clean up old annotations:**
-- Remove resolved TODO memos
-- Delete unnecessary omits
-- Archive tags no longer needed
-
-**Use projects to organize:**
-- Don't put everything in one project
-- Separate drafts, notes, and reference
-- Faster search within focused scope
+**Use Sprint & Stats for focused sessions.** Set a timer, write, track progress. Build consistent daily habits.
 
 ---
 
-## Getting Help
+## Common Questions
 
-### Common Questions
+**Do annotations count toward word count?**
+No. Word count excludes all annotation syntax.
 
-**Q: Can I use nested annotations?**
-A: Yes! You can nest annotations like `((memo with [[omit]] inside))`. The editor will highlight both annotation types correctly.
+**Can I control which annotations appear in exports?**
+Yes. Choose to include or exclude each annotation type (memos, omits, tags) in the export dialog.
 
-**Q: Do annotations count toward word count?**
-A: No. Word count excludes all annotation syntax.
+**Do archived documents appear in Find Panel searches?**
+When "Archived" view is active, the Find Panel searches only archived documents. When viewing active documents, it searches only active docs. The scope matches your current view.
 
-**Q: Can I control which annotations appear in exports?**
-A: Yes! You can choose to include or exclude each annotation type (memos, omits, tags) in your exports. However, you cannot export ONLY annotations without the main text - annotations are always exported alongside your content.
+**What's the difference between Reference and Archived documents?**
+Reference documents are active documents marked for research/background (blue indicator, diamond watermark, excluded from word counts). Archived documents are in a separate view. Reference is an organizational label; Archive is a separate state.
 
-**Q: Do archived documents appear in Find Panel searches?**
-A: It depends on your current view. When "Show Archived" is ON, Find Panel searches ONLY archived documents. When OFF, it searches only active documents. The search scope automatically matches your current view.
+**Can I search across projects?**
+Not currently. Search is per-project. Use tags consistently across projects as a workaround.
 
-**Q: What's the difference between Reference and Archived documents?**
-A: Reference documents are active documents marked for research/background (colored dot, watermark, blue line in editor). Archived documents are in a separate view and only searchable when "Show Archived" is toggled on. Reference = organizational label; Archived = separate view.
+**Can I recover deleted items?**
+Yes. Deleted projects and documents are recoverable from Settings → Recovery for 30 days. After that, they are permanently purged.
 
-**Q: How many documents can I have?**
-A: No limit. Performance stays good up to 1000+ documents per project.
+**How many documents can I have?**
+No limit. Performance stays good with hundreds of documents per project.
 
-**Q: Can I search across projects?**
-A: Not currently. Search is per-project. Use tags consistently across projects as a workaround.
+**What does "Duplicate + Archive" do?**
+Creates duplicates of all selected documents and automatically archives the originals. Perfect for starting a new draft version while preserving the original. Available in Selection Mode.
 
-**Q: What does "Duplicate + Archive" do?**
-A: It creates duplicates of all selected documents and automatically archives the originals. Perfect for starting a new draft version while preserving the original. This is a bulk operation available in Selection Mode.
+---
 
-**Q: How do I select multiple documents?**
-A: Click the selection icon in the Library panel to enter Selection Mode. Checkboxes will appear next to all documents. Click to select/deselect, or use "Select All" button.
-
-**Q: Can I undo a bulk delete?**
-A: No. Bulk delete is permanent and cannot be undone. Always double-check your selection before deleting. Consider archiving instead if you might need the documents later.
-
-**Q: How do I mark a document as reference?**
-A: Right-click (or swipe on mobile) on the document in the Library panel and select "Mark as Reference". Reference documents show a colored dot indicator, watermark overlay, and blue line in the editor.
-
-**Q: What is Sprint & Stats?**
-A: Sprint & Stats is a panel that combines a writing timer with real-time word count statistics. Set a timer (countdown or count-up), write, and watch your document and project word counts update live. Enable the word count pill for a persistent display while writing.
-
-**Q: Can I set word count goals in Sprint & Stats?**
-A: No. Sprint & Stats focuses on time-based sessions and real-time word count tracking. You set a timer and write - the stats show your progress naturally without predefined goals.
-
-**Q: Do stats update in real-time?**
-A: Yes! Word counts, character counts, and annotation counts update as you type. No need to refresh or save - stats are always current.
-
-**Q: Can I see stats for my entire project?**
-A: Yes. The Stats panel shows both document-level stats (current document) and project-level stats (all documents combined, including total words, documents, and annotations).
-
-**Q: What is Desktop Focus Mode?**
-A: Desktop Focus Mode hides the Library panel to give you full-width editor space for distraction-free writing. Toggle it with `Shift + Cmd + L` or click the chevron button.
-
-**Q: How do I get the Library panel back after hiding it?**
-A: Press `Shift + Cmd + L` again, or click the chevron button at the edge of the screen to restore the Library panel.
-
-### Troubleshooting
+## Troubleshooting
 
 **Annotations not highlighting:**
-- Check if syntax is correct: `((text))`, `[[text]]`, `#tag`
-- Ensure no spaces: `( (text) )` won't work
-- Refresh the editor if needed
+- Check syntax: `((text))`, `[[text]]`, `#tag`
+- Ensure no spaces break the markers: `( (text) )` won't work
 
 **Search not finding results:**
 - Check which mode you're in (Search, Memos, Omits, Tags)
-- Verify documents are in active project
-- **Check your view:** "Show Archived" ON searches only archived docs; OFF searches only active docs
-- Try clearing filter and searching again
+- Check your view: "Archived" shows only archived docs, "Active" shows only active docs
+- Try clearing the filter and searching again
 
 **Document seems missing:**
-- Check if it's archived (toggle "Show Archived" to switch views)
+- Check if it's archived (toggle to Archived view)
+- Check if it was deleted (Settings → Recovery)
 - Verify you're in the correct project
-- Check if document was accidentally deleted
-
-**Can't find annotation in search:**
-- Verify the document containing it is in your current view (active vs. archived)
-- Check spelling in filter text
-- Try the relevant mode (Memos, Omits, Tags) instead of Search
 
 **Export missing annotations:**
 - Check export dialog settings
-- Ensure annotation types are toggled on
-- Try different export format
+- Ensure the annotation types you want are toggled on
 
 ---
 
-## Keyboard Shortcuts Reference Card
+## Resources
 
-```
-┌─────────────────────────────────────────┐
-│         BIAS WRITER SHORTCUTS           │
-├─────────────────────────────────────────┤
-│ GLOBAL                                  │
-│  Cmd + F     Toggle Find Panel     │
-│  Cmd + 9/0   Add Memo              │
-│  Cmd + [/]   Add Omit              │
-│  Shift+Cmd+L Toggle Focus Mode     │
-│  Esc              Close Panel           │
-├─────────────────────────────────────────┤
-│ EDITOR                                  │
-│  Cmd + B     Bold                  │
-│  Cmd + I     Italic                │
-│  Cmd + Z     Undo                  │
-│  Cmd + Y     Redo                  │
-├─────────────────────────────────────────┤
-│ FIND PANEL                              │
-│  Click            Navigate to Result    │
-│  Esc              Close Panel           │
-│  Cmd + F     Toggle Panel          │
-└─────────────────────────────────────────┘
-```
-
----
-
-## Version History
-
-**v1.0 (December 2024)**
-- Initial release
-- Two-stage filtering system
-- Three annotation types
-- Multi-mode Find Panel
-- Project organization
-- Export functionality
-
----
-
-## About BIAS Writer
-
-BIAS Writer is a professional markdown editor developed by BIAS LLC, featuring patent-pending annotation management technology.
+- **Website:** https://www.bias.pub
+- **Help:** https://help.bias.pub
+- **Support:** support@bias.pub
+- **General inquiries:** info@bias.pub
 
 ### Patent-Pending Technology
 
-BIAS Writer's two-stage hierarchical content filtering system is protected by **U.S. Provisional Patent Application No. 63/949,099**, filed December 26, 2024.
-
-This innovative search and filtering approach provides significant advantages over traditional search methods. The X/Y count format, categorical filtering, and lexical refinement work together to create an intuitive, powerful annotation management system.
-
-### Resources
-
-- **User Guide:** https://help.bias.pub
-- **Video Tutorials:** https://www.youtube.com/@BIASLLCApps
-- **Support:** support@bias.pub
-- **General Inquiries:** info@bias.pub
-
-### Technical Documentation
-
-Detailed technical architecture and patent information are available upon request for licensing or partnership inquiries. Contact info@bias.pub.
+BIAS Writer's two-stage hierarchical content filtering system is protected by U.S. Provisional Patent Application No. 63/949,099, filed December 26, 2024.
 
 ---
 
-**BIAS Writer**  
-© 2025 BIAS LLC. All rights reserved.  
-Patent Pending - U.S. Provisional Patent Application No. 63/949,099 
+**BIAS Writer**
+© 2026 BIAS LLC. All rights reserved.
+Patent Pending — U.S. Provisional Patent Application No. 63/949,099
