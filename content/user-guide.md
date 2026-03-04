@@ -50,14 +50,14 @@
 12. [Project Organization](#project-organization)
 13. [Markdown Guide](#markdown-guide)
 14. [Keyboard Shortcuts](#keyboard-shortcuts)
-15. [Use Cases & Workflows](#use-cases--workflows)
+15. [Use Cases & Workflows](#use-cases-workflows)
     - TODO Management
     - Revision Tracking
     - Theme Analysis
     - Starting a New Draft
     - Breaking Up Large Manuscripts
     - Daily Writing Sessions
-16. [Tips & Best Practices](#tips--best-practices)
+16. [Tips & Best Practices](#tips-best-practices)
 17. [Common Questions](#common-questions)
 18. [Troubleshooting](#troubleshooting)
 
