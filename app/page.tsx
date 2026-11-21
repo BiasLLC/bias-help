@@ -1,42 +1,72 @@
-import fs from 'fs'
-import path from 'path'
-import { marked } from 'marked'
+import Link from 'next/link'
 
-// Configure marked to add IDs to headings
-const renderer = new marked.Renderer()
-const originalHeading = renderer.heading.bind(renderer)
+const manuals = [
+  {
+    href: '/writer',
+    title: 'BIAS Writer',
+    blurb:
+      'Writer 2.0 and Writer Pro: Markdown, tags, memos, search, projects, and export.',
+  },
+  {
+    href: '/script',
+    title: 'BIAS Script',
+    blurb:
+      'Coming soon for iPad and Mac. A preview guide to Fountain, outlines, notes, revisions, and export.',
+  },
+  {
+    href: '/study',
+    title: 'BIAS Study',
+    blurb:
+      'TestFlight beta: build CSV question banks first, then explore optional AI imports and explanations.',
+  },
+]
 
-renderer.heading = function(text, level, raw) {
-  // Generate ID from heading text
-  const id = raw
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '') // Remove special chars
-    .replace(/\s+/g, '-')      // Replace spaces with hyphens
-    .replace(/-+/g, '-')       // Replace multiple hyphens with single
-    .trim()
-  
-  return `<h${level} id="${id}">${text}</h${level}>\n`
-}
-
-marked.setOptions({ renderer })
-
-export default async function Home() {
-  const filePath = path.join(process.cwd(), 'content', 'user-guide.md')
-  let content = ''
-  
-  try {
-    content = fs.readFileSync(filePath, 'utf8')
-  } catch (error) {
-    content = '# Welcome to BIAS Writer Help\n\nDocumentation is being set up...'
-  }
-
-  // Convert markdown to HTML with custom renderer
-  const htmlContent = marked(content)
-
+export default function Home() {
   return (
-    <article 
-      className="prose prose-lg max-w-none"
-      dangerouslySetInnerHTML={{ __html: htmlContent }}
-    />
+    <main className="max-w-5xl mx-auto px-6 py-12">
+      <section className="mb-12">
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+          BIAS Manuals
+        </h1>
+        <p className="text-lg text-gray-600 max-w-2xl leading-relaxed">
+          User guides for the BIAS suite. Choose the app you&rsquo;re using.
+        </p>
+      </section>
+
+      <section className="grid gap-5 md:grid-cols-3">
+        {manuals.map((manual) => (
+          <Link
+            key={manual.href}
+            href={manual.href}
+            className="group block rounded-xl border border-gray-200 p-6 hover:border-blue-400 hover:shadow-sm transition"
+          >
+            <h2 className="text-xl font-semibold mb-2 group-hover:text-blue-600 transition">
+              {manual.title}
+            </h2>
+            <p className="text-sm text-gray-600 leading-relaxed">{manual.blurb}</p>
+            <span className="inline-block mt-4 text-sm font-medium text-blue-600">
+              Open guide →
+            </span>
+          </Link>
+        ))}
+      </section>
+
+      <section className="mt-16 pt-8 border-t border-gray-200 text-sm text-gray-600">
+        <p>
+          Need help? Email{' '}
+          <a
+            href="mailto:support@bias.pub"
+            className="text-blue-600 hover:underline"
+          >
+            support@bias.pub
+          </a>{' '}
+          or visit{' '}
+          <a href="https://bias.pub" className="text-blue-600 hover:underline">
+            bias.pub
+          </a>
+          .
+        </p>
+      </section>
+    </main>
   )
 }
